@@ -132,7 +132,54 @@ namespace GreenCoopApp
                 form.Show(this);
                 form.Visible = false;
 
+                CmbFileType.Items.Clear();
+                CmbFileType.Items.Add("セレクティブ");
+                CmbFileType.Items.Add("ラッピング");
+                CmbFileType.Items.Add("予備セット");
+                CmbFileType.Items.Add("学習データ");
+                CmbFileType.SelectedIndex = 0;
+
                 LblConter.Text = "";
+
+
+                LsvSelectiveData.View = View.Details;
+                #region 列の新規作成
+                ColumnHeader col01 = new ColumnHeader();
+                ColumnHeader col02 = new ColumnHeader();
+                ColumnHeader col03 = new ColumnHeader();
+                ColumnHeader col04 = new ColumnHeader();
+                ColumnHeader col05 = new ColumnHeader();
+                ColumnHeader col06 = new ColumnHeader();
+                #endregion
+                #region 列名称設定
+                col01.Text = "No.";
+                col02.Text = "ファイル名";
+                col03.Text = "生協名";
+                col04.Text = "企画号数";
+                col05.Text = "日目";
+                col06.Text = "件数";
+                #endregion
+                #region 列揃え指定
+                col01.TextAlign = HorizontalAlignment.Center;
+                col02.TextAlign = HorizontalAlignment.Center;
+                col03.TextAlign = HorizontalAlignment.Center;
+                col04.TextAlign = HorizontalAlignment.Center;
+                col05.TextAlign = HorizontalAlignment.Center;
+                col06.TextAlign = HorizontalAlignment.Center;
+                #endregion
+                #region 列幅指定
+                col01.Width = 80;       // No.
+                col02.Width = 550;      // ファイル名
+                col03.Width = 100;      // 生協名
+                col04.Width = 100;      // 企画号数
+                col05.Width = 100;      // 日目
+                col06.Width = 100;      // 件数
+                #endregion
+                #region 列表示
+                ColumnHeader[] colHeader = new[] { col01, col02, col03, col04, col05, col06 };
+                LsvSelectiveData.Columns.AddRange(colHeader);
+                #endregion
+
                 // セレクティブデータ一覧表示
                 DispSelectiveDataList();
             }
@@ -223,50 +270,66 @@ namespace GreenCoopApp
                 //return;
                 #endregion
 
-                LsvSelectiveData.View = View.Details;
-                #region 列の新規作成
-                ColumnHeader col01 = new ColumnHeader();
-                ColumnHeader col02 = new ColumnHeader();
-                ColumnHeader col03 = new ColumnHeader();
-                ColumnHeader col04 = new ColumnHeader();
-                ColumnHeader col05 = new ColumnHeader();
-                ColumnHeader col06 = new ColumnHeader();
-                #endregion
-                #region 列名称設定
-                col01.Text = "No.";
-                col02.Text = "ファイル名";
-                col03.Text = "生協名";
-                col04.Text = "企画号数";
-                col05.Text = "日目";
-                col06.Text = "件数";
-                #endregion
-                #region 列揃え指定
-                col01.TextAlign = HorizontalAlignment.Center;
-                col02.TextAlign = HorizontalAlignment.Center;
-                col03.TextAlign = HorizontalAlignment.Center;
-                col04.TextAlign = HorizontalAlignment.Center;
-                col05.TextAlign = HorizontalAlignment.Center;
-                col06.TextAlign = HorizontalAlignment.Center;
-                #endregion
-                #region 列幅指定
-                col01.Width = 80;       // No.
-                col02.Width = 550;      // ファイル名
-                col03.Width = 100;      // 生協名
-                col04.Width = 100;      // 企画号数
-                col05.Width = 100;      // 日目
-                col06.Width = 100;      // 件数
-                #endregion
-                #region 列表示
-                ColumnHeader[] colHeader = new[] { col01, col02, col03, col04, col05, col06 };
-                LsvSelectiveData.Columns.AddRange(colHeader);
-                #endregion
+                //LsvSelectiveData.View = View.Details;
+                //#region 列の新規作成
+                //ColumnHeader col01 = new ColumnHeader();
+                //ColumnHeader col02 = new ColumnHeader();
+                //ColumnHeader col03 = new ColumnHeader();
+                //ColumnHeader col04 = new ColumnHeader();
+                //ColumnHeader col05 = new ColumnHeader();
+                //ColumnHeader col06 = new ColumnHeader();
+                //#endregion
+                //#region 列名称設定
+                //col01.Text = "No.";
+                //col02.Text = "ファイル名";
+                //col03.Text = "生協名";
+                //col04.Text = "企画号数";
+                //col05.Text = "日目";
+                //col06.Text = "件数";
+                //#endregion
+                //#region 列揃え指定
+                //col01.TextAlign = HorizontalAlignment.Center;
+                //col02.TextAlign = HorizontalAlignment.Center;
+                //col03.TextAlign = HorizontalAlignment.Center;
+                //col04.TextAlign = HorizontalAlignment.Center;
+                //col05.TextAlign = HorizontalAlignment.Center;
+                //col06.TextAlign = HorizontalAlignment.Center;
+                //#endregion
+                //#region 列幅指定
+                //col01.Width = 80;       // No.
+                //col02.Width = 550;      // ファイル名
+                //col03.Width = 100;      // 生協名
+                //col04.Width = 100;      // 企画号数
+                //col05.Width = 100;      // 日目
+                //col06.Width = 100;      // 件数
+                //#endregion
+                //#region 列表示
+                //ColumnHeader[] colHeader = new[] { col01, col02, col03, col04, col05, col06 };
+                //LsvSelectiveData.Columns.AddRange(colHeader);
+                //#endregion
+
+                string sFileType = "";
+                switch (CmbFileType.SelectedIndex)
+                {
+                    case 0:
+                        sFileType = "*.SM";
+                        break;
+
+                    case 1:
+                        sFileType = "*.tmp";
+                        break;
+
+                    default:
+                        sFileType = "*.csv";
+                        break;
+                }
 
                 int iNumber = 0;
                 LsvSelectiveData.Items.Clear();
                 // ファイル作成順
                 foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
                                                                       PubConstClass.pblChoaiFolder) ,
-                                                                      "*", SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
+                                                                      sFileType, SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
                 {
                     // 読込ファイルの行数を取得する
                     string[] lines = File.ReadAllLines(sTranFile);
@@ -5791,5 +5854,9 @@ namespace GreenCoopApp
             return sb.ToString();
         }
 
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            DispSelectiveDataList();
+        }
     }
 }
