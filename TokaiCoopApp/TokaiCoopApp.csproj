@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E8D57345-79D3-4350-9961-F0DD526D9D1D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GreenCoopApp</RootNamespace>
+    <AssemblyName>GreenCoopApp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetBarcode">
+      <HintPath>.\DotNetBarcode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NonHCopyNet, Version=2.0.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\NonHCopyNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.7.0.0\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActualProductionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualProductionForm.Designer.cs">
+      <DependentUpon>ActualProductionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasketCarCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BasketCarCheckForm.Designer.cs">
+      <DependentUpon>BasketCarCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonTextCustomizableMessageBox.cs" />
+    <Compile Include="CdioCs.cs" />
+    <Compile Include="CommonModule.cs" />
+    <Compile Include="DepotOrderSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepotOrderSettingForm.Designer.cs">
+      <DependentUpon>DepotOrderSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrivingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrivingForm.Designer.cs">
+      <DependentUpon>DrivingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EndForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndForm.Designer.cs">
+      <DependentUpon>EndForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntryAdjustForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryAdjustForm.Designer.cs">
+      <DependentUpon>EntryAdjustForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActualLogDisplayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualLogDisplayForm.Designer.cs">
+      <DependentUpon>ActualLogDisplayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InputDailyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InputDailyReportForm.Designer.cs">
+      <DependentUpon>InputDailyReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintenanceForm.Designer.cs">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterOfOrganizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterOfOrganizationForm.Designer.cs">
+      <DependentUpon>MasterOfOrganizationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumberOfFormOverList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NumberOfFormOverList.Designer.cs">
+      <DependentUpon>NumberOfFormOverList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordForm.Designer.cs">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductionDetailForm.Designer.cs">
+      <DependentUpon>ProductionDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionLogCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductionLogCheckForm.Designer.cs">
+      <DependentUpon>ProductionLogCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PubConstClass.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QrReadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QrReadForm.Designer.cs">
+      <DependentUpon>QrReadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReadCollatingDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReadCollatingDataForm.Designer.cs">
+      <DependentUpon>ReadCollatingDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShelfChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShelfChangeForm.Designer.cs">
+      <DependentUpon>ShelfChangeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ActualLogDisplayForm.resx">
+      <DependentUpon>ActualLogDisplayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualProductionForm.resx">
+      <DependentUpon>ActualProductionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BasketCarCheckForm.resx">
+      <DependentUpon>BasketCarCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepotOrderSettingForm.resx">
+      <DependentUpon>DepotOrderSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrivingForm.resx">
+      <DependentUpon>DrivingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndForm.resx">
+      <DependentUpon>EndForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntryAdjustForm.resx">
+      <DependentUpon>EntryAdjustForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InputDailyReportForm.resx">
+      <DependentUpon>InputDailyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceForm.resx">
+      <DependentUpon>MaintenanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterOfOrganizationForm.resx">
+      <DependentUpon>MasterOfOrganizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumberOfFormOverList.resx">
+      <DependentUpon>NumberOfFormOverList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordForm.resx">
+      <DependentUpon>PasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionDetailForm.resx">
+      <DependentUpon>ProductionDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductionLogCheckForm.resx">
+      <DependentUpon>ProductionLogCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QrReadForm.resx">
+      <DependentUpon>QrReadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReadCollatingDataForm.resx">
+      <DependentUpon>ReadCollatingDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShelfChangeForm.resx">
+      <DependentUpon>ShelfChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon\GreenCoopLogo.png" />
+    <None Include="icon\book_icon.png" />
+    <None Include="icon\Correction_icon.png" />
+    <None Include="icon\exit_icon.png" />
+    <None Include="icon\graph_icon.png" />
+    <None Include="icon\maintenance_icon.png" />
+    <None Include="icon\read_data_icon.png" />
+    <None Include="icon\reload_icon.png" />
+    <None Include="icon\report_icon.png" />
+    <None Include="icon\u_turn.png" />
+    <None Include="icon\back_arrow1.png" />
+    <None Include="icon\back_arrow2.png" />
+    <None Include="icon\back_arrow3.png" />
+    <None Include="icon\read_data.png" />
+    <None Include="icon\printer.png" />
+    <None Include="icon\write1.png" />
+    <None Include="icon\search2.png" />
+    <None Include="icon\rework_icon.png" />
+    <None Include="icon\running_icon.png" />
+    <None Include="icon\tana_icon.png" />
+    <None Include="icon\back_arrow.png" />
+    <None Include="icon\rework_icon2.png" />
+    <None Include="icon\qrcode_icon.png" />
+    <None Include="icon\scanner.png" />
+    <None Include="icon\exit_icon_small.png" />
+    <None Include="icon\graph_small1.png" />
+    <None Include="icon\graph_small2.png" />
+    <None Include="icon\poweroff_icon.png" />
+    <None Include="icon\cancel.png" />
+    <None Include="icon\check.png" />
+    <None Include="icon\save_icon.png" />
+    <None Include="icon\trash_icon.png" />
+    <None Include="icon\signal_test.png" />
+    <None Include="icon\select_file.png" />
+    <None Include="icon\2021rengokai_soshikizu.jpg" />
+    <None Include="icon\check_icon.png" />
+    <None Include="icon\up2.png" />
+    <None Include="icon\down2.png" />
+    <None Include="icon\search1.png" />
+    <None Include="icon\extract.png" />
+    <None Include="icon\waiting.gif" />
+    <None Include="icon\note_big.png" />
+    <None Include="icon\study.png" />
+    <None Include="icon\check_small.png" />
+    <None Include="icon\puzzle1.png" />
+    <None Include="icon\personal connections2.png" />
+    <None Include="icon\TokaiCoopLogo.gif" />
+    <Content Include="NonHCopyNet.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="アラームリスト.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="アラーム除外リスト.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ブザー区分け名称.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ブザー音色名称.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="名称変換リスト.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
