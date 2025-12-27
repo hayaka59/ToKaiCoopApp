@@ -87,6 +87,8 @@ namespace GreenCoopApp
             this.BtnMakeControlDataFile = new System.Windows.Forms.Button();
             this.BtnSelect = new System.Windows.Forms.Button();
             this.BtnBack = new System.Windows.Forms.Button();
+            this.CmbFileType = new System.Windows.Forms.ComboBox();
+            this.BtnUpdate = new System.Windows.Forms.Button();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -743,7 +745,7 @@ namespace GreenCoopApp
             this.BtnSelect.Image = global::GreenCoopApp.Properties.Resources.read_data;
             this.BtnSelect.Location = new System.Drawing.Point(12, 56);
             this.BtnSelect.Name = "BtnSelect";
-            this.BtnSelect.Size = new System.Drawing.Size(332, 62);
+            this.BtnSelect.Size = new System.Drawing.Size(332, 50);
             this.BtnSelect.TabIndex = 133;
             this.BtnSelect.Text = "丁合指示データ取込";
             this.BtnSelect.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -764,12 +766,34 @@ namespace GreenCoopApp
             this.BtnBack.UseVisualStyleBackColor = true;
             this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
+            // CmbFileType
+            // 
+            this.CmbFileType.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.CmbFileType.FormattingEnabled = true;
+            this.CmbFileType.Location = new System.Drawing.Point(13, 111);
+            this.CmbFileType.Name = "CmbFileType";
+            this.CmbFileType.Size = new System.Drawing.Size(191, 32);
+            this.CmbFileType.TabIndex = 350;
+            // 
+            // BtnUpdate
+            // 
+            this.BtnUpdate.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnUpdate.Location = new System.Drawing.Point(245, 111);
+            this.BtnUpdate.Name = "BtnUpdate";
+            this.BtnUpdate.Size = new System.Drawing.Size(96, 35);
+            this.BtnUpdate.TabIndex = 351;
+            this.BtnUpdate.Text = "更新";
+            this.BtnUpdate.UseVisualStyleBackColor = true;
+            this.BtnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
+            // 
             // ReadCollatingDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnUpdate);
+            this.Controls.Add(this.CmbFileType);
             this.Controls.Add(this.PicWaitList);
             this.Controls.Add(this.LblConter);
             this.Controls.Add(this.LstFileContent);
@@ -898,5 +922,7 @@ namespace GreenCoopApp
         internal System.Windows.Forms.ListBox LstFileContent;
         private System.Windows.Forms.Label LblConter;
         private System.Windows.Forms.PictureBox PicWaitList;
+        private System.Windows.Forms.Button BtnUpdate;
+        private System.Windows.Forms.ComboBox CmbFileType;
     }
 }
