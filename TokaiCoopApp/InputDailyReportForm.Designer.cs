@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class InputDailyReportForm
     {
@@ -103,7 +103,7 @@ namespace GreenCoopApp
             // BtnPrint
             // 
             this.BtnPrint.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPrint.Image = global::GreenCoopApp.Properties.Resources.printer;
+            this.BtnPrint.Image = global::TokaiCoopApp.Properties.Resources.printer;
             this.BtnPrint.Location = new System.Drawing.Point(564, 599);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(445, 50);
@@ -117,7 +117,7 @@ namespace GreenCoopApp
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::GreenCoopApp.Properties.Resources.exit_icon_small;
+            this.BtnClose.Image = global::TokaiCoopApp.Properties.Resources.exit_icon_small;
             this.BtnClose.Location = new System.Drawing.Point(1132, 599);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(218, 50);
@@ -434,8 +434,8 @@ namespace GreenCoopApp
             // PictureBox1
             // 
             this.PictureBox1.ErrorImage = null;
-            this.PictureBox1.Image = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
-            this.PictureBox1.InitialImage = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.Image = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.InitialImage = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
             this.PictureBox1.Location = new System.Drawing.Point(1600, 900);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(275, 62);

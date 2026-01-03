@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class EndForm
     {
@@ -64,7 +64,7 @@ namespace GreenCoopApp
             // BtnEnd
             // 
             this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnEnd.Image = global::GreenCoopApp.Properties.Resources.running_icon;
+            this.BtnEnd.Image = global::TokaiCoopApp.Properties.Resources.running_icon;
             this.BtnEnd.Location = new System.Drawing.Point(63, 193);
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(220, 50);
@@ -78,7 +78,7 @@ namespace GreenCoopApp
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("メイリオ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCancel.Image = global::GreenCoopApp.Properties.Resources.cancel;
+            this.BtnCancel.Image = global::TokaiCoopApp.Properties.Resources.cancel;
             this.BtnCancel.Location = new System.Drawing.Point(322, 193);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(220, 50);
@@ -94,7 +94,7 @@ namespace GreenCoopApp
             this.Label7.BackColor = System.Drawing.SystemColors.Control;
             this.Label7.Font = new System.Drawing.Font("メイリオ", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Label7.ForeColor = System.Drawing.Color.Black;
-            this.Label7.Image = global::GreenCoopApp.Properties.Resources.poweroff_icon;
+            this.Label7.Image = global::TokaiCoopApp.Properties.Resources.poweroff_icon;
             this.Label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Label7.Location = new System.Drawing.Point(23, 19);
             this.Label7.Name = "Label7";

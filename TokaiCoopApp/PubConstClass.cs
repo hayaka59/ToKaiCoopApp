@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
 
     public class PubConstClass
@@ -83,15 +83,15 @@ namespace GreenCoopApp
         public static string[,] pblNameConversionList = new string[21, 2];  // 名称変換リスト
         public static int intNameConversionListCnt;                         // 名称変換リスト格納数
 
-        public static List<String> lstLoginData = new List<String>();       // ログインファイル格納リスト
-        public static List<String> lstLinePlanData = new List<String>();    // ライン計画ファイル格納リスト
+        public static List<string> lstLoginData = new List<string>();       // ログインファイル格納リスト
+        public static List<string> lstLinePlanData = new List<string>();    // ライン計画ファイル格納リスト
         
-        public static List<String> lstCoopDepoData = new List<String>();    // 生協・デポ一覧ファイル格納リスト
+        public static List<string> lstCoopDepoData = new List<string>();    // 生協・デポ一覧ファイル格納リスト
         public static Dictionary<string, string> dicCoopCodeData;           // 生協コード変換用辞書
         public static Dictionary<string, string> dicDepoCodeData;           // デポコード変換用辞書
 
         //public static string[] pblCollatingData = new string[100001];           // 丁合指示データ格納配列（最大10万件）
-        public static List<String> pblCollatingData = new List<String>();
+        public static List<string> pblCollatingData = new List<string>();
         public static int intCollatingIndex;                                    // 丁合指示データ格納インデックス
         public static string[] pblTransactionData = new string[100001];         // 稼働データ格納配列（最大10万件）
         public static int intTransactionIndex;                                  // 稼働データ格納インデックス

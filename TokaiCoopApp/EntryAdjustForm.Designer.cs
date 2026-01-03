@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class EntryAdjustForm
     {
@@ -278,8 +278,8 @@ namespace GreenCoopApp
             // PictureBox1
             // 
             this.PictureBox1.ErrorImage = null;
-            this.PictureBox1.Image = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
-            this.PictureBox1.InitialImage = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.Image = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.InitialImage = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
             this.PictureBox1.Location = new System.Drawing.Point(4, 568);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(275, 62);
@@ -289,7 +289,7 @@ namespace GreenCoopApp
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::GreenCoopApp.Properties.Resources.exit_icon_small;
+            this.BtnClose.Image = global::TokaiCoopApp.Properties.Resources.exit_icon_small;
             this.BtnClose.Location = new System.Drawing.Point(1184, 575);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(153, 44);
@@ -372,7 +372,7 @@ namespace GreenCoopApp
             // BtnCancelForFormList
             // 
             this.BtnCancelForFormList.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCancelForFormList.Image = global::GreenCoopApp.Properties.Resources.cancel;
+            this.BtnCancelForFormList.Image = global::TokaiCoopApp.Properties.Resources.cancel;
             this.BtnCancelForFormList.Location = new System.Drawing.Point(705, 328);
             this.BtnCancelForFormList.Name = "BtnCancelForFormList";
             this.BtnCancelForFormList.Size = new System.Drawing.Size(153, 44);
@@ -386,7 +386,7 @@ namespace GreenCoopApp
             // BtnOkForFormList
             // 
             this.BtnOkForFormList.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnOkForFormList.Image = global::GreenCoopApp.Properties.Resources.check;
+            this.BtnOkForFormList.Image = global::TokaiCoopApp.Properties.Resources.check;
             this.BtnOkForFormList.Location = new System.Drawing.Point(7, 326);
             this.BtnOkForFormList.Name = "BtnOkForFormList";
             this.BtnOkForFormList.Size = new System.Drawing.Size(153, 44);

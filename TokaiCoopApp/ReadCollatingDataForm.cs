@@ -21,7 +21,7 @@ using static System.Windows.Forms.AxHost;
 using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     public partial class ReadCollatingDataForm : Form
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class MasterOfOrganizationForm
     {
@@ -76,7 +76,7 @@ namespace GreenCoopApp
             // 
             // PictureBox1
             // 
-            this.PictureBox1.Image = global::GreenCoopApp.Properties.Resources._2021rengokai_soshikizu;
+            this.PictureBox1.Image = global::TokaiCoopApp.Properties.Resources._2021rengokai_soshikizu;
             this.PictureBox1.InitialImage = null;
             this.PictureBox1.Location = new System.Drawing.Point(6, 586);
             this.PictureBox1.Name = "PictureBox1";
@@ -87,7 +87,7 @@ namespace GreenCoopApp
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::GreenCoopApp.Properties.Resources.exit_icon_small;
+            this.BtnClose.Image = global::TokaiCoopApp.Properties.Resources.exit_icon_small;
             this.BtnClose.Location = new System.Drawing.Point(547, 874);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(185, 52);

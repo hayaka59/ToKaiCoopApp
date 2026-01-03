@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class QrReadForm
     {
@@ -53,7 +53,7 @@ namespace GreenCoopApp
             // BtnConfirm
             // 
             this.BtnConfirm.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnConfirm.Image = global::GreenCoopApp.Properties.Resources.check;
+            this.BtnConfirm.Image = global::TokaiCoopApp.Properties.Resources.check;
             this.BtnConfirm.Location = new System.Drawing.Point(641, 357);
             this.BtnConfirm.Name = "BtnConfirm";
             this.BtnConfirm.Size = new System.Drawing.Size(130, 52);
@@ -67,7 +67,7 @@ namespace GreenCoopApp
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("メイリオ", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCancel.Image = global::GreenCoopApp.Properties.Resources.cancel;
+            this.BtnCancel.Image = global::TokaiCoopApp.Properties.Resources.cancel;
             this.BtnCancel.Location = new System.Drawing.Point(777, 357);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(141, 52);

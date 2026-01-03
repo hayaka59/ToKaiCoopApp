@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq.Expressions;
 using System.Windows.Forms;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     public partial class EntryAdjustForm : Form
     {

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     public partial class DepotOrderSettingForm : Form
     {

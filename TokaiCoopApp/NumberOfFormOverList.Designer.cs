@@ -1,4 +1,4 @@
-﻿namespace GreenCoopApp
+﻿namespace TokaiCoopApp
 {
     partial class NumberOfFormOverList
     {
@@ -78,7 +78,7 @@
             // BtnPrint
             // 
             this.BtnPrint.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPrint.Image = global::GreenCoopApp.Properties.Resources.printer;
+            this.BtnPrint.Image = global::TokaiCoopApp.Properties.Resources.printer;
             this.BtnPrint.Location = new System.Drawing.Point(11, 503);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(160, 45);
@@ -92,7 +92,7 @@
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::GreenCoopApp.Properties.Resources.exit_icon_small;
+            this.BtnClose.Image = global::TokaiCoopApp.Properties.Resources.exit_icon_small;
             this.BtnClose.Location = new System.Drawing.Point(611, 503);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(160, 45);

@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class ProductionDetailForm
     {
@@ -87,7 +87,7 @@ namespace GreenCoopApp
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::GreenCoopApp.Properties.Resources.exit_icon_small;
+            this.BtnClose.Image = global::TokaiCoopApp.Properties.Resources.exit_icon_small;
             this.BtnClose.Location = new System.Drawing.Point(721, 965);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(173, 50);
@@ -390,7 +390,7 @@ namespace GreenCoopApp
             // BtnPrintScreen
             // 
             this.BtnPrintScreen.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnPrintScreen.Image = global::GreenCoopApp.Properties.Resources.printer;
+            this.BtnPrintScreen.Image = global::TokaiCoopApp.Properties.Resources.printer;
             this.BtnPrintScreen.Location = new System.Drawing.Point(363, 965);
             this.BtnPrintScreen.Name = "BtnPrintScreen";
             this.BtnPrintScreen.Size = new System.Drawing.Size(173, 50);
@@ -404,8 +404,8 @@ namespace GreenCoopApp
             // PictureBox1
             // 
             this.PictureBox1.ErrorImage = null;
-            this.PictureBox1.Image = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
-            this.PictureBox1.InitialImage = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.Image = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.InitialImage = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
             this.PictureBox1.Location = new System.Drawing.Point(1600, 900);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(275, 62);
