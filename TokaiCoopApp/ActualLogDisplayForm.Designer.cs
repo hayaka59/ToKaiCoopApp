@@ -1,4 +1,4 @@
-﻿namespace GreenCoopApp
+﻿namespace TokaiCoopApp
 {
     partial class ActualLogDisplayForm
     {

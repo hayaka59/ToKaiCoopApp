@@ -1,4 +1,4 @@
-﻿namespace GreenCoopApp
+﻿namespace TokaiCoopApp
 {
     partial class ShelfChangeForm
     {
@@ -57,7 +57,7 @@
             // BtnConfirm
             // 
             this.BtnConfirm.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnConfirm.Image = global::GreenCoopApp.Properties.Resources.check;
+            this.BtnConfirm.Image = global::TokaiCoopApp.Properties.Resources.check;
             this.BtnConfirm.Location = new System.Drawing.Point(342, 359);
             this.BtnConfirm.Name = "BtnConfirm";
             this.BtnConfirm.Size = new System.Drawing.Size(114, 45);

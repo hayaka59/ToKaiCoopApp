@@ -1,4 +1,4 @@
-﻿namespace GreenCoopApp
+﻿namespace TokaiCoopApp
 {
     partial class DepotOrderSettingForm
     {
@@ -87,7 +87,7 @@
             // BtnConfirm
             // 
             this.BtnConfirm.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnConfirm.Image = global::GreenCoopApp.Properties.Resources.check;
+            this.BtnConfirm.Image = global::TokaiCoopApp.Properties.Resources.check;
             this.BtnConfirm.Location = new System.Drawing.Point(343, 297);
             this.BtnConfirm.Name = "BtnConfirm";
             this.BtnConfirm.Size = new System.Drawing.Size(114, 45);
@@ -101,7 +101,7 @@
             // BtnUpDepo
             // 
             this.BtnUpDepo.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnUpDepo.Image = global::GreenCoopApp.Properties.Resources.up2;
+            this.BtnUpDepo.Image = global::TokaiCoopApp.Properties.Resources.up2;
             this.BtnUpDepo.Location = new System.Drawing.Point(343, 26);
             this.BtnUpDepo.Name = "BtnUpDepo";
             this.BtnUpDepo.Size = new System.Drawing.Size(114, 45);
@@ -115,7 +115,7 @@
             // BtnDownDepo
             // 
             this.BtnDownDepo.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDownDepo.Image = global::GreenCoopApp.Properties.Resources.down2;
+            this.BtnDownDepo.Image = global::TokaiCoopApp.Properties.Resources.down2;
             this.BtnDownDepo.Location = new System.Drawing.Point(343, 91);
             this.BtnDownDepo.Name = "BtnDownDepo";
             this.BtnDownDepo.Size = new System.Drawing.Size(114, 45);

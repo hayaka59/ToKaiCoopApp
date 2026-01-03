@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // 制御されます。アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更します。
-[assembly: AssemblyTitle("GreenCoopApp")]
-[assembly: AssemblyDescription("グリーンコープ様向け 生産管理PCアプリ")]
+[assembly: AssemblyTitle("TokaiCoopApp")]
+[assembly: AssemblyDescription("東海コープ様向け 生産管理PCアプリ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("株式会社G-ROBO")]
-[assembly: AssemblyProduct("GreenCoopApp")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCompany("株式会社 Ai-R")]
+[assembly: AssemblyProduct("TokaiCoopApp")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // すべての値を指定するか、次を使用してビルド番号とリビジョン番号を既定に設定できます
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("20.25.12.28")]
+[assembly: AssemblyFileVersion("20.25.12.28")]

@@ -8,7 +8,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     public partial class MaintenanceForm : Form
     {

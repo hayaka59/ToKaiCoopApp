@@ -1,5 +1,5 @@
 ﻿
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class PasswordForm
     {
@@ -61,7 +61,7 @@ namespace GreenCoopApp
             // BtnOK
             // 
             this.BtnOK.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnOK.Image = global::GreenCoopApp.Properties.Resources.check;
+            this.BtnOK.Image = global::TokaiCoopApp.Properties.Resources.check;
             this.BtnOK.Location = new System.Drawing.Point(14, 66);
             this.BtnOK.Name = "BtnOK";
             this.BtnOK.Size = new System.Drawing.Size(160, 50);
@@ -75,7 +75,7 @@ namespace GreenCoopApp
             // BtnCancel
             // 
             this.BtnCancel.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnCancel.Image = global::GreenCoopApp.Properties.Resources.cancel;
+            this.BtnCancel.Image = global::TokaiCoopApp.Properties.Resources.cancel;
             this.BtnCancel.Location = new System.Drawing.Point(180, 66);
             this.BtnCancel.Name = "BtnCancel";
             this.BtnCancel.Size = new System.Drawing.Size(160, 50);

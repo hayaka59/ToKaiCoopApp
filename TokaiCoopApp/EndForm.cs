@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     public partial class EndForm : Form
     {

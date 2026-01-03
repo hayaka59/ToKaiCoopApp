@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     static class CommonModule
     {

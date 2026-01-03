@@ -1,4 +1,4 @@
-﻿namespace GreenCoopApp
+﻿namespace TokaiCoopApp
 {
     partial class ProductionLogCheckForm
     {
@@ -124,8 +124,8 @@
             // PictureBox1
             // 
             this.PictureBox1.ErrorImage = null;
-            this.PictureBox1.Image = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
-            this.PictureBox1.InitialImage = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.Image = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.InitialImage = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
             this.PictureBox1.Location = new System.Drawing.Point(50, 954);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(275, 62);
@@ -135,7 +135,7 @@
             // BtnClose
             // 
             this.BtnClose.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnClose.Image = global::GreenCoopApp.Properties.Resources.exit_icon_small;
+            this.BtnClose.Image = global::TokaiCoopApp.Properties.Resources.exit_icon_small;
             this.BtnClose.Location = new System.Drawing.Point(1686, 964);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(160, 45);
@@ -159,7 +159,7 @@
             // 
             // PicWaiting2
             // 
-            this.PicWaiting2.Image = global::GreenCoopApp.Properties.Resources.waiting;
+            this.PicWaiting2.Image = global::TokaiCoopApp.Properties.Resources.waiting;
             this.PicWaiting2.Location = new System.Drawing.Point(779, 608);
             this.PicWaiting2.Name = "PicWaiting2";
             this.PicWaiting2.Size = new System.Drawing.Size(100, 100);
@@ -169,7 +169,7 @@
             // BtnDifferenceExtraction
             // 
             this.BtnDifferenceExtraction.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnDifferenceExtraction.Image = global::GreenCoopApp.Properties.Resources.extract;
+            this.BtnDifferenceExtraction.Image = global::TokaiCoopApp.Properties.Resources.extract;
             this.BtnDifferenceExtraction.Location = new System.Drawing.Point(1650, 396);
             this.BtnDifferenceExtraction.Name = "BtnDifferenceExtraction";
             this.BtnDifferenceExtraction.Size = new System.Drawing.Size(160, 45);
@@ -609,7 +609,7 @@
             // BtnSelectiveExtraction
             // 
             this.BtnSelectiveExtraction.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnSelectiveExtraction.Image = global::GreenCoopApp.Properties.Resources.search2;
+            this.BtnSelectiveExtraction.Image = global::TokaiCoopApp.Properties.Resources.search2;
             this.BtnSelectiveExtraction.Location = new System.Drawing.Point(9, 122);
             this.BtnSelectiveExtraction.Name = "BtnSelectiveExtraction";
             this.BtnSelectiveExtraction.Size = new System.Drawing.Size(160, 45);
@@ -710,7 +710,7 @@
             // BtnFileSave
             // 
             this.BtnFileSave.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnFileSave.Image = global::GreenCoopApp.Properties.Resources.save_icon;
+            this.BtnFileSave.Image = global::TokaiCoopApp.Properties.Resources.save_icon;
             this.BtnFileSave.Location = new System.Drawing.Point(1650, 748);
             this.BtnFileSave.Name = "BtnFileSave";
             this.BtnFileSave.Size = new System.Drawing.Size(160, 45);
@@ -724,7 +724,7 @@
             // BtnScreenPrint
             // 
             this.BtnScreenPrint.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnScreenPrint.Image = global::GreenCoopApp.Properties.Resources.printer;
+            this.BtnScreenPrint.Image = global::TokaiCoopApp.Properties.Resources.printer;
             this.BtnScreenPrint.Location = new System.Drawing.Point(1650, 697);
             this.BtnScreenPrint.Name = "BtnScreenPrint";
             this.BtnScreenPrint.Size = new System.Drawing.Size(160, 45);
@@ -738,7 +738,7 @@
             // BtnFullExtraction
             // 
             this.BtnFullExtraction.Font = new System.Drawing.Font("メイリオ", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnFullExtraction.Image = global::GreenCoopApp.Properties.Resources.search1;
+            this.BtnFullExtraction.Image = global::TokaiCoopApp.Properties.Resources.search1;
             this.BtnFullExtraction.Location = new System.Drawing.Point(1650, 83);
             this.BtnFullExtraction.Name = "BtnFullExtraction";
             this.BtnFullExtraction.Size = new System.Drawing.Size(160, 45);
@@ -775,7 +775,7 @@
             // 
             // PicWaiting1
             // 
-            this.PicWaiting1.Image = global::GreenCoopApp.Properties.Resources.waiting;
+            this.PicWaiting1.Image = global::TokaiCoopApp.Properties.Resources.waiting;
             this.PicWaiting1.Location = new System.Drawing.Point(779, 239);
             this.PicWaiting1.Name = "PicWaiting1";
             this.PicWaiting1.Size = new System.Drawing.Size(100, 100);

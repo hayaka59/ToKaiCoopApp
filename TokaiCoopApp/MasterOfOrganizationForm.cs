@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     public partial class MasterOfOrganizationForm : Form
     {

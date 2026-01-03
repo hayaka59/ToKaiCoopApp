@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GreenCoopApp.Properties {
+namespace TokaiCoopApp.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace GreenCoopApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GreenCoopApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("TokaiCoopApp.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -65,7 +65,7 @@ namespace GreenCoopApp.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _2021rengokai_soshikizu {
             get {
-                object obj = ResourceManager.GetObject("2021rengokai_soshikizu", resourceCulture);
+                object obj = ResourceManager.GetObject("_2021rengokai_soshikizu", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

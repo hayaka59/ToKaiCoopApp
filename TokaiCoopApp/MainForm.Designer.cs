@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
-namespace GreenCoopApp
+namespace TokaiCoopApp
 {
     partial class MainForm
     {
@@ -228,7 +228,7 @@ namespace GreenCoopApp
             // BtnProductionLogCheck
             // 
             this.BtnProductionLogCheck.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnProductionLogCheck.Image = global::GreenCoopApp.Properties.Resources.note_big;
+            this.BtnProductionLogCheck.Image = global::TokaiCoopApp.Properties.Resources.note_big;
             this.BtnProductionLogCheck.Location = new System.Drawing.Point(121, 649);
             this.BtnProductionLogCheck.Name = "BtnProductionLogCheck";
             this.BtnProductionLogCheck.Size = new System.Drawing.Size(550, 255);
@@ -242,7 +242,7 @@ namespace GreenCoopApp
             // BtnActualProduction
             // 
             this.BtnActualProduction.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnActualProduction.Image = global::GreenCoopApp.Properties.Resources.graph_icon;
+            this.BtnActualProduction.Image = global::TokaiCoopApp.Properties.Resources.graph_icon;
             this.BtnActualProduction.Location = new System.Drawing.Point(120, 385);
             this.BtnActualProduction.Name = "BtnActualProduction";
             this.BtnActualProduction.Size = new System.Drawing.Size(550, 255);
@@ -256,7 +256,7 @@ namespace GreenCoopApp
             // BtnReport
             // 
             this.BtnReport.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnReport.Image = global::GreenCoopApp.Properties.Resources.report_icon;
+            this.BtnReport.Image = global::TokaiCoopApp.Properties.Resources.report_icon;
             this.BtnReport.Location = new System.Drawing.Point(1233, 385);
             this.BtnReport.Name = "BtnReport";
             this.BtnReport.Size = new System.Drawing.Size(550, 255);
@@ -270,7 +270,7 @@ namespace GreenCoopApp
             // BtnMaintenance
             // 
             this.BtnMaintenance.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnMaintenance.Image = global::GreenCoopApp.Properties.Resources.maintenance_icon;
+            this.BtnMaintenance.Image = global::TokaiCoopApp.Properties.Resources.maintenance_icon;
             this.BtnMaintenance.Location = new System.Drawing.Point(677, 649);
             this.BtnMaintenance.Name = "BtnMaintenance";
             this.BtnMaintenance.Size = new System.Drawing.Size(550, 255);
@@ -284,7 +284,7 @@ namespace GreenCoopApp
             // BtnReadCollatingData
             // 
             this.BtnReadCollatingData.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnReadCollatingData.Image = global::GreenCoopApp.Properties.Resources.read_data_icon;
+            this.BtnReadCollatingData.Image = global::TokaiCoopApp.Properties.Resources.read_data_icon;
             this.BtnReadCollatingData.Location = new System.Drawing.Point(120, 132);
             this.BtnReadCollatingData.Name = "BtnReadCollatingData";
             this.BtnReadCollatingData.Size = new System.Drawing.Size(1663, 245);
@@ -298,8 +298,8 @@ namespace GreenCoopApp
             // PictureBox1
             // 
             this.PictureBox1.ErrorImage = null;
-            this.PictureBox1.Image = global::GreenCoopApp.Properties.Resources.TokaiCoopLogo;
-            this.PictureBox1.InitialImage = global::GreenCoopApp.Properties.Resources.GreenCoopLogo;
+            this.PictureBox1.Image = global::TokaiCoopApp.Properties.Resources.TokaiCoopLogo;
+            this.PictureBox1.InitialImage = global::TokaiCoopApp.Properties.Resources.GreenCoopLogo;
             this.PictureBox1.Location = new System.Drawing.Point(121, 62);
             this.PictureBox1.Name = "PictureBox1";
             this.PictureBox1.Size = new System.Drawing.Size(347, 62);
@@ -311,7 +311,7 @@ namespace GreenCoopApp
             // BtnAdjust
             // 
             this.BtnAdjust.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnAdjust.Image = global::GreenCoopApp.Properties.Resources.Correction_icon;
+            this.BtnAdjust.Image = global::TokaiCoopApp.Properties.Resources.Correction_icon;
             this.BtnAdjust.Location = new System.Drawing.Point(676, 385);
             this.BtnAdjust.Name = "BtnAdjust";
             this.BtnAdjust.Size = new System.Drawing.Size(550, 255);
@@ -325,7 +325,7 @@ namespace GreenCoopApp
             // BtnEnd
             // 
             this.BtnEnd.Font = new System.Drawing.Font("メイリオ", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.BtnEnd.Image = global::GreenCoopApp.Properties.Resources.exit_icon;
+            this.BtnEnd.Image = global::TokaiCoopApp.Properties.Resources.exit_icon;
             this.BtnEnd.Location = new System.Drawing.Point(1233, 649);
             this.BtnEnd.Name = "BtnEnd";
             this.BtnEnd.Size = new System.Drawing.Size(550, 255);
