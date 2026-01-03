@@ -195,119 +195,6 @@ namespace TokaiCoopApp
 
             try
             {
-                #region ListViewに画像を表示するサンプルコード
-                //var smallImageList = new ImageList();
-                //smallImageList.ImageSize = new Size(16, 16);
-                //smallImageList.ColorDepth = ColorDepth.Depth32Bit;
-                ////smallImageList.Images.Add("folder", Image.FromFile(@"C:\Images\folder.png"));
-                ////smallImageList.Images.Add("file", Image.FromFile(@"C:\Images\file.png"));
-                //smallImageList.Images.Add("pen", Image.FromFile(@"D:\Images\pen.png"));
-                //smallImageList.Images.Add("trash", Image.FromFile(@"D:\Images\trash.png"));
-                ////smallImageList.Images.Add("gifu", Image.FromFile(@"D:\Images\coopgifu.png"));
-                //LsvSelectiveData.SmallImageList = smallImageList;
-
-                //// 詳細表示の列定義
-                //LsvSelectiveData.Columns.Add("Name", 200);
-                //LsvSelectiveData.Columns.Add("Size", 80);
-                //LsvSelectiveData.Columns.Add("Type", 120);
-
-                //// 項目（1列目の左に画像が付く）
-                //var itemA = new ListViewItem("ペン") { ImageKey = "pen" };
-                //itemA.SubItems.Add("0 Byte");
-                //itemA.SubItems.Add("Folder");
-
-                //var itemB = new ListViewItem("ゴミ箱") { ImageKey = "trash" };
-                //itemB.SubItems.Add("2.4 MB");
-                //itemB.SubItems.Add("PDF");
-
-                //LsvSelectiveData.Items.AddRange(new[] { itemA, itemB });
-                //LsvSelectiveData.View = View.Details;
-                //LsvSelectiveData.FullRowSelect = true;
-
-                //return;
-
-                //// 1) ImageList を準備
-                //var largeImageList = new ImageList();
-                //largeImageList.ImageSize = new Size(180, 50); // 任意サイズ
-                //largeImageList.ColorDepth = ColorDepth.Depth32Bit;
-
-                //// 画像の追加（ファイルから）
-                //largeImageList.Images.Add("aichi", Image.FromFile(@"D:\Images\coopaichi.png"));
-                //largeImageList.Images.Add("mie", Image.FromFile(@"D:\Images\coopmie.png"));
-                //largeImageList.Images.Add("gifu", Image.FromFile(@"D:\Images\coopgifu.png"));
-
-                //// 2) ListView に割り当て
-                //LsvSelectiveData.LargeImageList = largeImageList;
-
-                //// 3) 項目作成（画像キーを紐づけ）
-                //var item1 = new ListViewItem("Aichi") { ImageKey = "aichi" };
-                //item1.SubItems.Add("あいち");
-                //var item2 = new ListViewItem("Mie") { ImageKey = "mie" };
-                //item2.SubItems.Add("みえ");
-                //var item3 = new ListViewItem("Gifu") { ImageKey = "gifu" };
-                //item3.SubItems.Add("ぎふ");
-
-                //LsvSelectiveData.Items.AddRange(new[] { item1, item2, item3 });
-
-                //// 4) 表示モード
-                ////LsvSelectiveData.View = View.LargeIcon;
-                //LsvSelectiveData.View = View.Details;
-
-                //return;
-
-                //// 大きい画像を使う
-                //LsvSelectiveData.LargeImageList = largeImageList;
-                //LsvSelectiveData.View = View.Tile;
-
-                //// タイルのサイズと行数（サブアイテムを表示）
-                //LsvSelectiveData.TileSize = new Size(200, 80);
-
-                //var tileItem = new ListViewItem("Camera-01") { ImageKey = "aichi" };
-                //tileItem.SubItems.Add("Status: Online");
-                //tileItem.SubItems.Add("FPS: 30");
-                //LsvSelectiveData.Items.Add(tileItem);
-
-                //return;
-                #endregion
-
-                //LsvSelectiveData.View = View.Details;
-                //#region 列の新規作成
-                //ColumnHeader col01 = new ColumnHeader();
-                //ColumnHeader col02 = new ColumnHeader();
-                //ColumnHeader col03 = new ColumnHeader();
-                //ColumnHeader col04 = new ColumnHeader();
-                //ColumnHeader col05 = new ColumnHeader();
-                //ColumnHeader col06 = new ColumnHeader();
-                //#endregion
-                //#region 列名称設定
-                //col01.Text = "No.";
-                //col02.Text = "ファイル名";
-                //col03.Text = "生協名";
-                //col04.Text = "企画号数";
-                //col05.Text = "日目";
-                //col06.Text = "件数";
-                //#endregion
-                //#region 列揃え指定
-                //col01.TextAlign = HorizontalAlignment.Center;
-                //col02.TextAlign = HorizontalAlignment.Center;
-                //col03.TextAlign = HorizontalAlignment.Center;
-                //col04.TextAlign = HorizontalAlignment.Center;
-                //col05.TextAlign = HorizontalAlignment.Center;
-                //col06.TextAlign = HorizontalAlignment.Center;
-                //#endregion
-                //#region 列幅指定
-                //col01.Width = 80;       // No.
-                //col02.Width = 550;      // ファイル名
-                //col03.Width = 100;      // 生協名
-                //col04.Width = 100;      // 企画号数
-                //col05.Width = 100;      // 日目
-                //col06.Width = 100;      // 件数
-                //#endregion
-                //#region 列表示
-                //ColumnHeader[] colHeader = new[] { col01, col02, col03, col04, col05, col06 };
-                //LsvSelectiveData.Columns.AddRange(colHeader);
-                //#endregion
-
                 string sFileType = "";
                 switch (CmbFileType.SelectedIndex)
                 {
@@ -1614,9 +1501,9 @@ namespace TokaiCoopApp
             string strStartUnionCd;     // 組合員CD（From）
             string strEndUnionCd;       // 組合員CD（To）
 
-            string strKikakuNo;         // 企画番号
-            string strYobi;             // 配達曜日
-            string strLineNol;          // ラインNo.
+            //string strKikakuNo;         // 企画番号
+            //string strYobi;             // 配達曜日
+            //string strLineNol;          // ラインNo.
             string strPutData;
             int intBoxCount;            // 結束束カウンタ
             string strKuwakeType;       // 区分けタイプ
@@ -1634,7 +1521,7 @@ namespace TokaiCoopApp
 
             string sTanaChangeValue;
 
-            int iDummyCreateCount;      // ダミー作成数カウンタ
+            //int iDummyCreateCount;      // ダミー作成数カウンタ
 
             try
             {
@@ -1645,7 +1532,7 @@ namespace TokaiCoopApp
 
                 PubConstClass.intControlWorkIndex = 0;
                 sTemporaryWareHouse = "";
-                iDummyCreateCount = 0;
+                //iDummyCreateCount = 0;
 
                 // 制御データファイル名称の生成               
                 int iIdx = LstCollatingData.Items.Count - 1;
@@ -3189,14 +3076,14 @@ namespace TokaiCoopApp
             string[] sData = "1,2,3,4,5,6,7,8,9,A".Split(',');
             string sCoopNo = "";
             string sDepoNo = "";
-            string sDepoName = "";
-            int iSetNumber = 0;
+            string sDepoName;
+            int iSetNumber;
             int iYobiSet = 0;
             string sKagoNumber = "";
-            string sContainer = "";
+            string sContainer;
             string sSetFrom = "";
             string sSetTo = "";
-            string sPutData = "";
+            string sPutData;
             int iIndex = 0;
             int iKagoIndex = 0;
             string[] sKagoArray;
@@ -3387,7 +3274,8 @@ namespace TokaiCoopApp
         /// </summary>
         private void WriteListOfProcessedItemsForEachCoop(List<string> lstNumberOfBasketCars)
         {
-            string[] sData = "1,2,3,4,5,6,7,8,9,A".Split(',');
+            //string[] sData = "1,2,3,4,5,6,7,8,9,A".Split(',');
+            string[] sData;
             string sCoopCode = "";      // 生協コード
             string sCoopName = "";      // 生協名
             int iSetNumber = 0;         // セット数
@@ -3397,7 +3285,7 @@ namespace TokaiCoopApp
             string sSetFrom = "";       // セット値（FROM）
             string sSetTo = "";         // セット値（TO）
 
-            string sPutData = "";
+            string sPutData;
             string strPutDataPath;
 
             List<String> lstProcessedItemsForEachCoop = new List<String>();
@@ -3837,7 +3725,7 @@ namespace TokaiCoopApp
         private void CreateOperationDataStorageSequenceFile()
         {
             string[] strArray;
-            string strWork = "";
+            string strWork;
             string strFromWorkCode = "";
             string strFromSetSeq = "";      // セット順序番号
             int intIndex;
@@ -4833,7 +4721,7 @@ namespace TokaiCoopApp
                         }
                         // データ読込処理
                         CommonModule.ReadListOfNumberOfCarsInBasket(strLoadingDataPath);
-                        CommonProcessingForListPrinting(strLoadingDataPath);
+                        CommonProcessingForListPrinting();
                         break;
                     
                     case 3:
@@ -4846,7 +4734,7 @@ namespace TokaiCoopApp
                         }
                         // データ読込処理
                         CommonModule.ReadListOfProcessedItems(strLoadingDataPath);
-                        CommonProcessingForListPrinting(strLoadingDataPath);
+                        CommonProcessingForListPrinting();
                         break;
                     
                     case 4:
@@ -4859,7 +4747,7 @@ namespace TokaiCoopApp
                         }
                         // データ読込処理
                         CommonModule.ReadShipmentConfirmationTable(strLoadingDataPath);
-                        CommonProcessingForListPrinting(strLoadingDataPath);
+                        CommonProcessingForListPrinting();
                         break;
                     
                     case 5:
@@ -4961,7 +4849,8 @@ namespace TokaiCoopApp
         /// 一覧印字の為の共通処理
         /// </summary>
         /// <param name="strLoadingDataPath"></param>
-        private void CommonProcessingForListPrinting(string strLoadingDataPath)
+        //private void CommonProcessingForListPrinting(string strLoadingDataPath)
+        private void CommonProcessingForListPrinting()
         {
             try
             {
@@ -5701,91 +5590,45 @@ namespace TokaiCoopApp
             {
                 int iColIndex = 0;
                 
-                col[iColIndex++] = (PubConstClass.intCollatingIndex + 1).ToString("000000");
-                //col[iColIndex++] = sSelectiveData.Substring(0, 7);
-                //col[iColIndex++] = sSelectiveData.Substring(7, 5);
-                //col[iColIndex++] = sSelectiveData.Substring(12, 2);
-                //col[iColIndex++] = sSelectiveData.Substring(14, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(15, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(16, 8/2);
-                //col[iColIndex++] = sSelectiveData.Substring(20, 4);
-                //col[iColIndex++] = sSelectiveData.Substring(24, 16/2);
-                //col[iColIndex++] = sSelectiveData.Substring(32, 7);
-
-                //col[iColIndex++] = sSelectiveData.Substring(39, 7);
-                //col[iColIndex++] = sSelectiveData.Substring(46, 16/2);
-                //col[iColIndex++] = sSelectiveData.Substring(53, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(54, 6);
-                //col[iColIndex++] = sSelectiveData.Substring(60, 32/2);
-                //col[iColIndex++] = sSelectiveData.Substring(76, 4);
-                //col[iColIndex++] = sSelectiveData.Substring(80, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(81, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(82, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(83, 1);
-
-                //col[iColIndex++] = sSelectiveData.Substring(84, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(85, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(86, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(87, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(88, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(89, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(90, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(91, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(92, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(93, 1);
-
-                //col[iColIndex++] = sSelectiveData.Substring(94, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(95, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(96, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(97, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(98, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(99, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(100, 1);
-                //col[iColIndex++] = sSelectiveData.Substring(101, 1);
-
-
-
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 0, 7);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 7, 5);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 12, 2);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 14, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 15, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 16, 8);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 24, 4);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 28, 16);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 44, 7);
-
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 51, 7);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 58, 16);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 74, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 75, 6);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 81, 32);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 113, 4);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 117, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 118, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 119, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 120, 1);
-
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 121, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 122, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 123, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 124, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 125, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 126, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 127, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 128, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 129, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 130, 1);
-
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 131, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 132, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 133, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 134, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 135, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 136, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 137, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 138, 1);
-                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 139, 1);
+                col[iColIndex++] = (PubConstClass.intCollatingIndex + 1).ToString("000000");    // col[0]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 0, 7);                 // col[1]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 7, 5);                 // col[2]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 12, 2);                // col[3]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 14, 1);                // col[4]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 15, 1);                // col[5]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 16, 8);                // col[6]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 24, 4);                // col[7]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 28, 16);               // col[8]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 44, 7);                // col[9]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 51, 7);                // col[10]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 58, 16);               // col[11]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 74, 1);                // col[12]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 75, 6);                // col[13]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 81, 32);               // col[14]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 113, 4);               // col[15]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 117, 1);               // col[16]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 118, 1);               // col[17]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 119, 1);               // col[18]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 120, 1);               // col[19]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 121, 1);               // col[20]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 122, 1);               // col[21]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 123, 1);               // col[22]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 124, 1);               // col[23]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 125, 1);               // col[24]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 126, 1);               // col[25]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 127, 1);               // col[26]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 128, 1);               // col[27]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 129, 1);               // col[28]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 130, 1);               // col[29]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 131, 1);               // col[30]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 132, 1);               // col[31]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 133, 1);               // col[32]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 134, 1);               // col[33]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 135, 1);               // col[34]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 136, 1);               // col[35]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 137, 1);               // col[36]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 138, 1);               // col[37]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 139, 1);               // col[38]：
 
                 // データの表示
                 itm = new ListViewItem(col);
@@ -5819,44 +5662,72 @@ namespace TokaiCoopApp
             }
         }
 
-
         /// <summary>
         /// CP932（Windows-31J）でのバイト数を桁として、
         /// Nバイト目からMバイトぶんを切り出す（文字境界を壊さない）。
         /// </summary>
         public static string SubstringByCp932Bytes(string s, int startBytes, int byteCount)
         {
-            if (string.IsNullOrEmpty(s) || byteCount <= 0) return string.Empty;
-
-            var enc = Encoding.GetEncoding(932); // CP932
-                                                 // 文字破壊を防ぐため、グラフェム単位で積み上げてバイト幅を数える
-            var si = new System.Globalization.StringInfo(s);
-            int total = si.LengthInTextElements;
-
-            int posBytes = 0;
-            int endBytes = startBytes + byteCount;
-            var sb = new StringBuilder();
-
-            for (int i = 0; i < total; i++)
+            try
             {
-                string elem = si.SubstringByTextElements(i, 1);
-                int w = enc.GetByteCount(elem);
+                if (string.IsNullOrEmpty(s) || byteCount <= 0) return string.Empty;
 
-                int next = posBytes + w;
-                // 部分的に重なる場合は丸ごと含める（文字破壊を避ける）
-                if (next > startBytes && posBytes < endBytes)
+                var enc = Encoding.GetEncoding(932); // CP932
+                                                     // 文字破壊を防ぐため、グラフェム単位で積み上げてバイト幅を数える
+                //var si = new System.Globalization.StringInfo(s);
+                var si = new StringInfo(s);
+                int total = si.LengthInTextElements;
+
+                int posBytes = 0;
+                int endBytes = startBytes + byteCount;
+                var sb = new StringBuilder();
+
+                for (int i = 0; i < total; i++)
                 {
-                    sb.Append(elem);
+                    string elem = si.SubstringByTextElements(i, 1);
+                    int w = enc.GetByteCount(elem);
+
+                    int next = posBytes + w;
+                    // 部分的に重なる場合は丸ごと含める（文字破壊を避ける）
+                    if (next > startBytes && posBytes < endBytes)
+                    {
+                        sb.Append(elem);
+                    }
+                    posBytes = next;
+                    if (posBytes >= endBytes) break;
                 }
-                posBytes = next;
-                if (posBytes >= endBytes) break;
+                return sb.ToString();
             }
-            return sb.ToString();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【SubstringByCp932Bytes】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return "ERROR";
+            }
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)
-        {
-            DispSelectiveDataList();
+        {            
+            try
+            {
+                switch (CmbFileType.SelectedIndex)
+                {
+                    case 0:
+                        DispSelectiveDataList();
+                        break;
+
+                    case 1:
+
+                        break;
+
+                    default:
+                        // 何もしない
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
