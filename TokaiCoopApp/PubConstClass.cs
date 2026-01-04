@@ -29,7 +29,7 @@ namespace TokaiCoopApp
         public const string CMD_RECIEVE_D = "D";  // シトマから単協区分け信号を受信
         public const string CMD_RECIEVE_E = "E";  // シトマから排出ゲート開放信号を受信
 
-        public const string DEF_VERSION              = "Ver.20.26.01.03";           // バージョン情報 
+        public const string DEF_VERSION              = "Ver.20.26.01.04";           // バージョン情報 
         public const string DEF_FILENAME             = "GreenCoopApp.def";          // DEFファイル名称
         //public const string DEF_ORG_MASTER           = "組織マスタ.txt";
         public const string DEF_ALARM_LIST           = "アラームリスト.txt";
