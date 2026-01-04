@@ -181,97 +181,11 @@ namespace TokaiCoopApp
                 #endregion
 
                 // セレクティブデータ一覧表示
-                DispSelectiveDataList();
+                DispSelectiveDataList("*.SM");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.StackTrace, "【ReadCollatingDataForm_Load】", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void DispSelectiveDataList()
-        {
-            List<string> lstFileList = new List<string>();
-
-            try
-            {
-                string sFileType = "";
-                switch (CmbFileType.SelectedIndex)
-                {
-                    case 0:
-                        sFileType = "*.SM";
-                        break;
-
-                    case 1:
-                        sFileType = "*.tmp";
-                        break;
-
-                    default:
-                        sFileType = "*.csv";
-                        break;
-                }
-
-                int iNumber = 0;
-                LsvSelectiveData.Items.Clear();
-                // ファイル作成順
-                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
-                                                                      PubConstClass.pblChoaiFolder) ,
-                                                                      sFileType, SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
-                {
-                    // 読込ファイルの行数を取得する
-                    string[] lines = File.ReadAllLines(sTranFile);
-
-                    string sCoop = "";
-                    string sKikaku = "";
-                    string sNichime = "";
-                    // ファイルの内容を１行だけ読む
-                    using (StreamReader sr = new StreamReader(sTranFile, Encoding.Default))
-                    {
-                        while (!sr.EndOfStream)
-                        {
-                            string sData = sr.ReadLine();
-                            sKikaku = sData.Substring(12, 2).Trim();            // 企画号数
-                            sNichime = sData.Substring(14, 1).Trim();           // 日目
-                            string sCoopCode = sData.Substring(15, 1).Trim();   // 生協コード
-                            switch(sCoopCode) { 
-                                case "1":
-                                    sCoop = "ぎふ";
-                                    break;
-                                case "3":
-                                    sCoop = "あいち";
-                                    break;
-                                case "5":
-                                    sCoop = "みえ";
-                                    break;
-                                default:
-                                    sCoop = "不明";
-                                    break;
-                            }
-                            // １行だけ読む
-                            break;  
-                        }
-                    }
-
-                    string[] col = new string[6];
-                    ListViewItem itm;
-                    iNumber++;
-                    col[0] = iNumber.ToString("000");   // No.
-                    col[1] = sTranFile;                 // ファイル名
-                    col[2] = sCoop;                     // 生協名
-                    col[3] = sKikaku + "号";            // 企画号数
-                    col[4] = sNichime + "日目";         // 日目
-                    col[5] = lines.Length.ToString("#,###,##0") + "件";
-                    // データの表示
-                    itm = new ListViewItem(col);
-                    LsvSelectiveData.Items.Add(itm);
-                    LsvSelectiveData.Items[0].UseItemStyleForSubItems = false;
-                    LsvSelectiveData.Select();
-                    LsvSelectiveData.Items[0].EnsureVisible();                                   
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.StackTrace, "【DispSelectiveData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -5526,8 +5440,11 @@ namespace TokaiCoopApp
             }
         }
 
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         private async Task LoadFileToListBoxAsync(string path)
         {
             //const int BATCH_SIZE = 1000;  // UIへ追加する1回あたりの行数（調整可）
@@ -5705,29 +5622,113 @@ namespace TokaiCoopApp
             }
         }
 
+        /// <summary>
+        /// 「更新」ボタン処理
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnUpdate_Click(object sender, EventArgs e)
-        {            
+        {
+            string sFileType = "";
+
             try
-            {
+            {                
                 switch (CmbFileType.SelectedIndex)
                 {
                     case 0:
-                        DispSelectiveDataList();
+                        sFileType = "*.SM";                        
                         break;
 
                     case 1:
-
+                        sFileType = "*.tmp";
                         break;
 
                     default:
-                        // 何もしない
+                        sFileType = "*.csv";
                         break;
                 }
+                DispSelectiveDataList(sFileType);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "【BtnUpdate_Click】", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DispSelectiveDataList(string sFileType)
+        {
+            List<string> lstFileList = new List<string>();
+
+            try
+            {
+                int iNumber = 0;
+                LsvSelectiveData.Items.Clear();
+                // ファイル作成順
+                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                      PubConstClass.pblChoaiFolder),
+                                                                      sFileType, SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
+                {
+                    // 読込ファイルの行数を取得する
+                    string[] lines = File.ReadAllLines(sTranFile);
+
+                    string sCoop = "";
+                    string sKikaku = "";
+                    string sNichime = "";
+                    // ファイルの内容を１行だけ読む
+                    using (StreamReader sr = new StreamReader(sTranFile, Encoding.Default))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string sData = sr.ReadLine();
+                            sKikaku = sData.Substring(12, 2).Trim();            // 企画号数
+                            sNichime = sData.Substring(14, 1).Trim();           // 日目
+                            string sCoopCode = sData.Substring(15, 1).Trim();   // 生協コード
+                            switch (sCoopCode)
+                            {
+                                case "1":
+                                    sCoop = "ぎふ";
+                                    break;
+                                case "3":
+                                    sCoop = "あいち";
+                                    break;
+                                case "5":
+                                    sCoop = "みえ";
+                                    break;
+                                default:
+                                    sCoop = "不明";
+                                    break;
+                            }
+                            // １行だけ読む
+                            break;
+                        }
+                    }
+
+                    string[] col = new string[6];
+                    ListViewItem itm;
+                    iNumber++;
+                    col[0] = iNumber.ToString("000");   // No.
+                    col[1] = sTranFile;                 // ファイル名
+                    col[2] = sCoop;                     // 生協名
+                    col[3] = sKikaku + "号";            // 企画号数
+                    col[4] = sNichime + "日目";         // 日目
+                    col[5] = lines.Length.ToString("#,###,##0") + "件";
+                    // データの表示
+                    itm = new ListViewItem(col);
+                    LsvSelectiveData.Items.Add(itm);
+                    LsvSelectiveData.Items[0].UseItemStyleForSubItems = false;
+                    LsvSelectiveData.Select();
+                    LsvSelectiveData.Items[0].EnsureVisible();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【DispSelectiveData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+
     }
 }
