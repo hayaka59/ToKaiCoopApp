@@ -248,15 +248,31 @@ namespace TokaiCoopApp
                         LstCollatingData.Columns.Add("DT4"         , 80 , HorizontalAlignment.Center);
                         break;
                     case 1:
+                        LstCollatingData.Columns.Add("No.", 80, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("生協コード", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("企画号数", 100, HorizontalAlignment.Center);
+                        // 鞍1～鞍16、のヘッダー作成
+                        for (int i = 1; i <= 16; i++)
+                        {
+                            LstCollatingData.Columns.Add("使用フラグ", 100, HorizontalAlignment.Center);
+                            LstCollatingData.Columns.Add("丁合有無フラグ", 100, HorizontalAlignment.Center);
+                            LstCollatingData.Columns.Add("品名", 100, HorizontalAlignment.Center);
+                            LstCollatingData.Columns.Add("ページ数", 100, HorizontalAlignment.Center);
+                            LstCollatingData.Columns.Add("枚数", 100, HorizontalAlignment.Center);
+                        }
+                        // DT1～DT4、のヘッダー作成
+                        for (int i = 1; i <= 4; i++)
+                        {
+                            LstCollatingData.Columns.Add("DT丁合有無フラグ", 100, HorizontalAlignment.Center);
+                            LstCollatingData.Columns.Add("DT品名", 100, HorizontalAlignment.Center);
+                        }
                         break;
+
                     case 2:
                         break;
                     default:
                         break;
                 }
-
-
-
             }
             catch (Exception ex)
             {
@@ -5226,6 +5242,7 @@ namespace TokaiCoopApp
             try
             {
                 string sReadFilePath = LsvSelectiveData.SelectedItems[0].SubItems[1].Text;
+                int iSelectIndex = CmbFileType.SelectedIndex;
 
                 LstFileContent.Items.Clear();
                 LstCollatingData.Items.Clear();
@@ -5258,8 +5275,18 @@ namespace TokaiCoopApp
 
                 foreach (var line in File.ReadLines(sReadFilePath, Encoding.GetEncoding(932)))
                 {
-                    DispSelectiveData(line);
-
+                    switch(iSelectIndex){
+                        case 0:
+                            DispSelectiveData(line);
+                            break;
+                        case 1:
+                            DispWrappingData(line);
+                            break;
+                        default:
+                            DispSelectiveData(line);
+                            break;
+                    }
+                   
                     iIndex++;
                     if (iIndex % 100 == 0)
                     {
@@ -5427,6 +5454,70 @@ namespace TokaiCoopApp
             }
         }
 
+        private void DispWrappingData(string sSelectiveData)
+        {
+            string[] col = new string[3+5*16+2*4];
+            ListViewItem itm;
+            string strWorkData;
+
+            try
+            {
+                int iColIndex = 0;
+
+                col[iColIndex++] = (PubConstClass.intCollatingIndex + 1).ToString("000000");    // col[0]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 0, 1);                 // col[1]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 1, 8);                 // col[2]：
+                
+                int iIndex = 8;
+                for (int i = 1; i <= 16; i++)
+                {
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex, 1);
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex + 1, 1);
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex + 2, 40);
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex + 42, 3);
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex + 45, 3);
+                    iIndex += 48;
+                }
+
+                for (int i = 1; i <= 4; i++)
+                {
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex, 1);
+                    col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, iIndex + 1, 40);
+                    iIndex += 41;
+                }
+
+                // データの表示
+                itm = new ListViewItem(col);
+                LstCollatingData.Items.Add(itm);
+                LstCollatingData.Items[LstCollatingData.Items.Count - 1].UseItemStyleForSubItems = false;
+
+                strWorkData = "";
+                for (var intLoopCnt = 1; intLoopCnt <= 38; intLoopCnt++)
+                {
+                    strWorkData += col[intLoopCnt] + ",";
+                }
+                //CommonModule.OutPutLogFile($"■■読込データ({PubConstClass.intCollatingIndex.ToString("00000")})：{strWorkData}");
+
+                PubConstClass.pblCollatingData.Add(strWorkData);
+                PubConstClass.intCollatingIndex += 1;
+                // 作業コードのインデックスにデータを格納する（検索で使用する）
+                PubConstClass.pblReadCollating[Convert.ToInt32(col[0])] = strWorkData;
+
+                if (LstCollatingData.Items.Count % 2 == 0)
+                {
+                    // 偶数行の色反転
+                    for (var intLoopCnt = 0; intLoopCnt <= 38; intLoopCnt++)
+                    {
+                        LstCollatingData.Items[LstCollatingData.Items.Count - 1].SubItems[intLoopCnt].BackColor = Color.FromArgb(200, 200, 230);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【DispSelectiveData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// CP932（Windows-31J）でのバイト数を桁として、
         /// Nバイト目からMバイトぶんを切り出す（文字境界を壊さない）。
@@ -5486,6 +5577,7 @@ namespace TokaiCoopApp
                     case 0:
                         // セレクティブデータ表示
                         sFileType = "P12.PXSELDAT.*.SM";
+                        DisplayHeader(0);
                         DispSelectiveDataHeader(0);
                         DispSelectiveDataList(sFileType);
                         break;
@@ -5493,6 +5585,7 @@ namespace TokaiCoopApp
                     case 1:
                         // ラッピング管理データ表示
                         sFileType = "P12.PXWRAP.*";
+                        DisplayHeader(1);
                         DispSelectiveDataHeader(1);
                         DispWrappingManagementData(sFileType);
                         break;
@@ -5506,6 +5599,7 @@ namespace TokaiCoopApp
 
                     default:
                         sFileType = "*.csv";
+                        DisplayHeader(0);
                         DispSelectiveDataHeader(0);
                         DispSelectiveDataList(sFileType);
                         break;
