@@ -12,6 +12,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,7 +123,7 @@ namespace TokaiCoopApp
                 CmbPrintType.Items.Add("雛形印字");
                 CmbPrintType.SelectedIndex = 0;
                 // 丁合指示データ表示ヘッダーの作成
-                DisplayHeader();
+                DisplayHeader(0);
                 // 結束テーブルファイルの読込
                 LoadBindingTableFile();
 
@@ -141,45 +142,8 @@ namespace TokaiCoopApp
 
                 LblConter.Text = "";
 
-
-                LsvSelectiveData.View = View.Details;
-                #region 列の新規作成
-                ColumnHeader col01 = new ColumnHeader();
-                ColumnHeader col02 = new ColumnHeader();
-                ColumnHeader col03 = new ColumnHeader();
-                ColumnHeader col04 = new ColumnHeader();
-                ColumnHeader col05 = new ColumnHeader();
-                ColumnHeader col06 = new ColumnHeader();
-                #endregion
-                #region 列名称設定
-                col01.Text = "No.";
-                col02.Text = "ファイル名";
-                col03.Text = "生協名";
-                col04.Text = "企画号数";
-                col05.Text = "日目";
-                col06.Text = "件数";
-                #endregion
-                #region 列揃え指定
-                col01.TextAlign = HorizontalAlignment.Center;
-                col02.TextAlign = HorizontalAlignment.Center;
-                col03.TextAlign = HorizontalAlignment.Center;
-                col04.TextAlign = HorizontalAlignment.Center;
-                col05.TextAlign = HorizontalAlignment.Center;
-                col06.TextAlign = HorizontalAlignment.Center;
-                #endregion
-                #region 列幅指定
-                col01.Width = 80;       // No.
-                col02.Width = 550;      // ファイル名
-                col03.Width = 100;      // 生協名
-                col04.Width = 100;      // 企画号数
-                col05.Width = 100;      // 日目
-                col06.Width = 100;      // 件数
-                #endregion
-                #region 列表示
-                ColumnHeader[] colHeader = new[] { col01, col02, col03, col04, col05, col06 };
-                LsvSelectiveData.Columns.AddRange(colHeader);
-                #endregion
-
+                // セレクティブデータヘッダー表示
+                DispSelectiveDataHeader(0);
                 // セレクティブデータ一覧表示
                 DispSelectiveDataList("*.SM");
             }
@@ -231,184 +195,68 @@ namespace TokaiCoopApp
         /// <summary>
         /// 丁合指示データ表示ヘッダーの作成
         /// </summary>
-        private void DisplayHeader()
+        private void DisplayHeader(int iIndex)
         {
             try
             {
+                LstCollatingData.Columns.Clear();
                 LstCollatingData.View = View.Details;
+                LstCollatingData.GridLines = true;
+                LstCollatingData.FullRowSelect = true;
 
-                #region 列の新規作成
-                ColumnHeader col01 = new ColumnHeader();
-                ColumnHeader col02 = new ColumnHeader();
-                ColumnHeader col03 = new ColumnHeader();
-                ColumnHeader col04 = new ColumnHeader();
-                ColumnHeader col05 = new ColumnHeader();
-                ColumnHeader col06 = new ColumnHeader();
-                ColumnHeader col07 = new ColumnHeader();
-                ColumnHeader col08 = new ColumnHeader();
-                ColumnHeader col09 = new ColumnHeader();
-                ColumnHeader col10 = new ColumnHeader();
-                ColumnHeader col11 = new ColumnHeader();
-                ColumnHeader col12 = new ColumnHeader();
-                ColumnHeader col13 = new ColumnHeader();
-                ColumnHeader col14 = new ColumnHeader();
-                ColumnHeader col15 = new ColumnHeader();
-                ColumnHeader col16 = new ColumnHeader();
-                ColumnHeader col17 = new ColumnHeader();
-                ColumnHeader col18 = new ColumnHeader();
-                ColumnHeader col19 = new ColumnHeader();
-                ColumnHeader col20 = new ColumnHeader();
-                ColumnHeader col21 = new ColumnHeader();
-                ColumnHeader col22 = new ColumnHeader();
-                ColumnHeader col23 = new ColumnHeader();
-                ColumnHeader col24 = new ColumnHeader();
-                ColumnHeader col25 = new ColumnHeader();
-                ColumnHeader col26 = new ColumnHeader();
-                ColumnHeader col27 = new ColumnHeader();
-                ColumnHeader col28 = new ColumnHeader();
-                ColumnHeader col29 = new ColumnHeader();
-                ColumnHeader col30 = new ColumnHeader();
-                ColumnHeader col31 = new ColumnHeader();
-                ColumnHeader col32 = new ColumnHeader();
-                ColumnHeader col33 = new ColumnHeader();
-                ColumnHeader col34 = new ColumnHeader();
-                ColumnHeader col35 = new ColumnHeader();
-                ColumnHeader col36 = new ColumnHeader();
-                ColumnHeader col37 = new ColumnHeader();
-                ColumnHeader col38 = new ColumnHeader();
-                ColumnHeader col39 = new ColumnHeader();
-                #endregion
-                #region 列名称設定
-                col01.Text = "No.";
-                col02.Text = "作業コード";
-                col03.Text = "シーケンスNo";
-                col04.Text = "企画号数";
-                col05.Text = "日目";
-                col06.Text = "生協コード";
-                col07.Text = "生協名称";
-                col08.Text = "事業所コード";
-                col09.Text = "事業所名";
-                col10.Text = "コースコード";
-                col11.Text = "組合員コード";
-                col12.Text = "組合員名";
-                col13.Text = "配送形態";
-                col14.Text = "班コード";
-                col15.Text = "班名";
-                col16.Text = "配布日";
-                col17.Text = "カゴ車切替";
-                col18.Text = "コース仕分";
-                col19.Text = "結束仕分";                
-                col20.Text = "鞍1";
-                col21.Text = "鞍2";
-                col22.Text = "鞍3";
-                col23.Text = "鞍4";
-                col24.Text = "鞍5";
-                col25.Text = "鞍6";
-                col26.Text = "鞍7";
-                col27.Text = "鞍8";
-                col28.Text = "鞍9";
-                col29.Text = "鞍10";
-                col30.Text = "鞍11";
-                col31.Text = "鞍12";
-                col32.Text = "鞍13";
-                col33.Text = "鞍14";
-                col34.Text = "鞍15";
-                col35.Text = "鞍16";
-                col36.Text = "DT1";
-                col37.Text = "DT2";
-                col38.Text = "DT3";
-                col39.Text = "DT4";
-                #endregion
-                #region 列揃え指定
-                col01.TextAlign = HorizontalAlignment.Center;
-                col02.TextAlign = HorizontalAlignment.Center;
-                col03.TextAlign = HorizontalAlignment.Center;
-                col04.TextAlign = HorizontalAlignment.Center;
-                col05.TextAlign = HorizontalAlignment.Center;
-                col06.TextAlign = HorizontalAlignment.Center;
-                col07.TextAlign = HorizontalAlignment.Center;
-                col08.TextAlign = HorizontalAlignment.Center;
-                col09.TextAlign = HorizontalAlignment.Center;
-                col10.TextAlign = HorizontalAlignment.Center;
-                col11.TextAlign = HorizontalAlignment.Center;
-                col12.TextAlign = HorizontalAlignment.Center;
-                col13.TextAlign = HorizontalAlignment.Center;
-                col14.TextAlign = HorizontalAlignment.Center;
-                col15.TextAlign = HorizontalAlignment.Center;
-                col16.TextAlign = HorizontalAlignment.Center;
-                col17.TextAlign = HorizontalAlignment.Center;
-                col18.TextAlign = HorizontalAlignment.Center;
-                col19.TextAlign = HorizontalAlignment.Center;
-                col20.TextAlign = HorizontalAlignment.Center;
-                col21.TextAlign = HorizontalAlignment.Center;
-                col22.TextAlign = HorizontalAlignment.Center;
-                col23.TextAlign = HorizontalAlignment.Center;
-                col24.TextAlign = HorizontalAlignment.Center;
-                col25.TextAlign = HorizontalAlignment.Center;
-                col26.TextAlign = HorizontalAlignment.Center;
-                col27.TextAlign = HorizontalAlignment.Center;
-                col28.TextAlign = HorizontalAlignment.Center;
-                col29.TextAlign = HorizontalAlignment.Center;
-                col30.TextAlign = HorizontalAlignment.Center;
-                col31.TextAlign = HorizontalAlignment.Center;
-                col32.TextAlign = HorizontalAlignment.Center;
-                col33.TextAlign = HorizontalAlignment.Center;
-                col34.TextAlign = HorizontalAlignment.Center;
-                col35.TextAlign = HorizontalAlignment.Center;
-                col36.TextAlign = HorizontalAlignment.Center;
-                col37.TextAlign = HorizontalAlignment.Center;
-                col38.TextAlign = HorizontalAlignment.Center;
-                col39.TextAlign = HorizontalAlignment.Center;
-                #endregion
-                #region 列幅指定
-                col01.Width = 70;       // No.
-                col02.Width = 100;      // 作業コード
-                col03.Width = 100;      // シーケンスNo
-                col04.Width = 100;      // 企画号数
-                col05.Width = 100;      // 日目
-                col06.Width = 100;      // 生協コード
-                col07.Width = 100;      // 生協名称
-                col08.Width = 100;      // 事業所コード
-                col09.Width = 100;      // 事業所名
-                col10.Width = 100;      // コースコード
-                col11.Width = 100;      // 組合員コード
-                col12.Width = 100;      // 組合員名
-                col13.Width = 100;      // 配送形態
-                col14.Width = 100;      // 班コード
-                col15.Width = 100;      // 班名
-                col16.Width = 100;      // 配布日
-                col17.Width = 100;      // カゴ車切替
-                col18.Width = 100;      // コース仕分
-                col19.Width = 100;      // 結束仕分              
-                col20.Width = 80;       // 鞍1
-                col21.Width = 80;       // 鞍2
-                col22.Width = 60;       // 鞍3
-                col23.Width = 80;       // 鞍4
-                col24.Width = 80;       // 鞍5
-                col25.Width = 80;       // 鞍6
-                col26.Width = 80;       // 鞍7
-                col27.Width = 80;       // 鞍8
-                col28.Width = 80;       // 鞍9
-                col29.Width = 80;       // 鞍10
-                col30.Width = 80;       // 鞍11
-                col31.Width = 80;       // 鞍12
-                col32.Width = 80;       // 鞍13
-                col33.Width = 80;       // 鞍14
-                col34.Width = 80;       // 鞍15
-                col35.Width = 80;       // 鞍16
-                col36.Width = 80;       // DT1
-                col37.Width = 80;       // DT2
-                col38.Width = 80;       // DT3
-                col39.Width = 80;       // DT4
-                #endregion
-                #region 列表示
-                ColumnHeader[] colHeader = new[] { col01, col02, col03, col04, col05, col06, col07, col08, col09, col10,
-                                                   col11, col12, col13, col14, col15, col16, col17, col18, col19, col20,
-                                                   col21, col22, col23, col24, col25, col26, col27, col28, col29, col30,
-                                                   col31, col32, col33, col34, col35, col36, col37, col38, col39
-                                                   };
-                LstCollatingData.Columns.AddRange(colHeader);
-                #endregion
+                switch (iIndex)
+                {
+                    case 0:
+                        LstCollatingData.Columns.Add("No."         , 80, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("作業コード"  , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("シーケンスNo", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("企画号数"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("日目"        , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("生協コード"  , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("生協名称"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("事業所コード", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("事業所名"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("コースコード", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("組合員コード", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("組合員名"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("配送形態"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("班コード"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("班名"        , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("配布日"      , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("カゴ車切替"  , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("コース仕分"  , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("結束仕分"    , 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍1"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍2"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍3"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍4"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍5"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍6"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍7"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍8"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍9"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍10"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍11"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍12"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍13"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍14"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍15"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("鞍16"        , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("DT1"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("DT2"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("DT3"         , 80 , HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("DT4"         , 80 , HorizontalAlignment.Center);
+                        break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    default:
+                        break;
+                }
+
+
+
             }
             catch (Exception ex)
             {
@@ -5636,18 +5484,33 @@ namespace TokaiCoopApp
                 switch (CmbFileType.SelectedIndex)
                 {
                     case 0:
-                        sFileType = "*.SM";                        
+                        // セレクティブデータ表示
+                        sFileType = "P12.PXSELDAT.*.SM";
+                        DispSelectiveDataHeader(0);
+                        DispSelectiveDataList(sFileType);
                         break;
 
                     case 1:
-                        sFileType = "*.tmp";
+                        // ラッピング管理データ表示
+                        sFileType = "P12.PXWRAP.*";
+                        DispSelectiveDataHeader(1);
+                        DispWrappingManagementData(sFileType);
+                        break;
+
+                    case 2:
+                        // 予備セットデータ表示
+                        sFileType = "P12.PXCLIST.*";
+                        DispSelectiveDataHeader(2);
+                        DispReservedSetData(sFileType);
                         break;
 
                     default:
                         sFileType = "*.csv";
+                        DispSelectiveDataHeader(0);
+                        DispSelectiveDataList(sFileType);
                         break;
                 }
-                DispSelectiveDataList(sFileType);
+                
             }
             catch (Exception ex)
             {
@@ -5655,6 +5518,65 @@ namespace TokaiCoopApp
             }
         }
 
+        /// <summary>
+        /// セレクティブデータヘッダー表示
+        /// </summary>
+        /// <param name="iIndex"></param>
+        private void DispSelectiveDataHeader(int iIndex)
+        {
+            try
+            {
+                LsvSelectiveData.Columns.Clear();
+                LsvSelectiveData.View = View.Details;
+                LsvSelectiveData.GridLines = true;
+                LsvSelectiveData.FullRowSelect = true;
+
+                switch (iIndex)
+                {
+                    case 0:
+                        LsvSelectiveData.Columns.Add("No."       , 80 , HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("ファイル名", 550, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("企画号数"  , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("日目"      , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("生協名"    , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("件数"      , 100, HorizontalAlignment.Center);
+                        break;
+                    case 1:
+                        LsvSelectiveData.Columns.Add("No."           , 80 , HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("ファイル名"    , 550, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("生協名"        , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("企画号数"      , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("丁合有無フラグ", 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("件数"          , 100, HorizontalAlignment.Center);
+                        break;
+                    case 2:
+                        LsvSelectiveData.Columns.Add("No."       , 80 , HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("ファイル名", 550, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("配達回"    , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("配達日"    , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("生協名"    , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("件数"      , 100, HorizontalAlignment.Center);
+                        break;
+                    default:
+                        LsvSelectiveData.Columns.Add("No."       , 80 , HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("ファイル名", 550, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("生協名"    , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("企画号数"  , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("日目"      , 100, HorizontalAlignment.Center);
+                        LsvSelectiveData.Columns.Add("件数"      , 100, HorizontalAlignment.Center);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DispSelectiveDataHeader】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
+        /// セレクティブデータ表示処理
+        /// </summary>
+        /// <param name="sFileType"></param>
         private void DispSelectiveDataList(string sFileType)
         {
             List<string> lstFileList = new List<string>();
@@ -5708,9 +5630,9 @@ namespace TokaiCoopApp
                     iNumber++;
                     col[0] = iNumber.ToString("000");   // No.
                     col[1] = sTranFile;                 // ファイル名
-                    col[2] = sCoop;                     // 生協名
-                    col[3] = sKikaku + "号";            // 企画号数
-                    col[4] = sNichime + "日目";         // 日目
+                    col[2] = sKikaku + "号";            // 企画号数
+                    col[3] = sNichime + "日目";         // 日目
+                    col[4] = sCoop;                     // 生協名
                     col[5] = lines.Length.ToString("#,###,##0") + "件";
                     // データの表示
                     itm = new ListViewItem(col);
@@ -5726,9 +5648,154 @@ namespace TokaiCoopApp
             }
         }
 
+        /// <summary>
+        /// ラッピング管理データ表示処理
+        /// </summary>
+        /// <param name="sFileType"></param>
+        private void DispWrappingManagementData(string sFileType)
+        {
+            List<string> lstFileList = new List<string>();
 
+            try
+            {
+                int iNumber = 0;
+                LsvSelectiveData.Items.Clear();
+                // ファイル作成順
+                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                      PubConstClass.pblChoaiFolder),
+                                                                      sFileType, SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
+                {
+                    // 読込ファイルの行数を取得する
+                    string[] lines = File.ReadAllLines(sTranFile);
 
+                    string sCoop = "";
+                    string sKikaku = "";
+                    string sUseFlag = "";
+                    // ファイルの内容を１行だけ読む
+                    using (StreamReader sr = new StreamReader(sTranFile, Encoding.Default))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string sData = sr.ReadLine();
+                            string sCoopCode = sData.Substring(0, 1).Trim();   // 生協コード
+                            sKikaku = sData.Substring(1, 8).Trim();            // 企画号数
+                            sUseFlag = sData.Substring(9, 1).Trim();           // 丁合有無フラグ
+                            switch (sCoopCode)
+                            {
+                                case "1":
+                                    sCoop = "ぎふ";
+                                    break;
+                                case "3":
+                                    sCoop = "あいち";
+                                    break;
+                                case "5":
+                                    sCoop = "みえ";
+                                    break;
+                                default:
+                                    sCoop = "不明";
+                                    break;
+                            }
+                            // １行だけ読む
+                            break;
+                        }
+                    }
 
+                    string[] col = new string[6];
+                    ListViewItem itm;
+                    iNumber++;
+                    col[0] = iNumber.ToString("000");   // No.
+                    col[1] = sTranFile;                 // ファイル名
+                    col[2] = sCoop;                     // 生協名
+                    col[3] = sKikaku.Substring(1, 4) + "年度" + sKikaku.Substring(5, 2) + "号";            // 企画号数
+                    col[4] = sUseFlag;                  // 
+                    col[5] = lines.Length.ToString("#,###,##0") + "件";
+                    // データの表示
+                    itm = new ListViewItem(col);
+                    LsvSelectiveData.Items.Add(itm);
+                    LsvSelectiveData.Items[0].UseItemStyleForSubItems = false;
+                    LsvSelectiveData.Select();
+                    LsvSelectiveData.Items[0].EnsureVisible();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DispWrappingManagementData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        /// <summary>
+        /// 予備セットデータ表示処理
+        /// </summary>
+        /// <param name="sFileType"></param>
+        private void DispReservedSetData(string sFileType)
+        {
+            List<string> lstFileList = new List<string>();
+
+            try
+            {
+                int iNumber = 0;
+                LsvSelectiveData.Items.Clear();
+                // ファイル作成順
+                foreach (string sTranFile in Directory.GetFiles(CommonModule.IncludeTrailingPathDelimiter(
+                                                                      PubConstClass.pblChoaiFolder),
+                                                                      sFileType, SearchOption.AllDirectories).OrderByDescending(f => File.GetLastWriteTime(f)))
+                {
+                    // 読込ファイルの行数を取得する
+                    string[] lines = File.ReadAllLines(sTranFile);
+
+                    string sCoop = "";
+                    string sDeliveryTimes = "";
+                    string sDeliveryDay = "";
+                    // ファイルの内容を１行だけ読む
+                    using (StreamReader sr = new StreamReader(sTranFile, Encoding.Default))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            string sData = sr.ReadLine();
+                            sDeliveryTimes = sData.Substring(0, 7).Trim();      // 配達回
+                            sDeliveryDay = sData.Substring(7, 8).Trim();        // 配達日
+                            string sCoopCode = sData.Substring(15, 1).Trim();   // 生協コード
+                            switch (sCoopCode)
+                            {
+                                case "1":
+                                    sCoop = "ぎふ";
+                                    break;
+                                case "3":
+                                    sCoop = "あいち";
+                                    break;
+                                case "5":
+                                    sCoop = "みえ";
+                                    break;
+                                default:
+                                    sCoop = "不明";
+                                    break;
+                            }
+                            // １行だけ読む
+                            break;
+                        }
+                    }
+
+                    string[] col = new string[6];
+                    ListViewItem itm;
+                    iNumber++;
+                    col[0] = iNumber.ToString("000");   // No.
+                    col[1] = sTranFile;                 // ファイル名
+                    col[2] = sDeliveryTimes.Substring(1, 4) + "年度" + sDeliveryTimes.Substring(5, 2) + "号";            // 企画号数
+                    col[3] = sDeliveryDay;                  // 
+                    col[4] = sCoop;                     // 生協名
+                    col[5] = lines.Length.ToString("#,###,##0") + "件";
+                    // データの表示
+                    itm = new ListViewItem(col);
+                    LsvSelectiveData.Items.Add(itm);
+                    LsvSelectiveData.Items[0].UseItemStyleForSubItems = false;
+                    LsvSelectiveData.Select();
+                    LsvSelectiveData.Items[0].EnsureVisible();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "【DispWrappingManagementData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
