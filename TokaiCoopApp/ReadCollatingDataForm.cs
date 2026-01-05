@@ -269,6 +269,14 @@ namespace TokaiCoopApp
                         break;
 
                     case 2:
+                        LstCollatingData.Columns.Add("No.", 80, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("配達回", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("配達日", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("生協コード", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("生協名", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("事業所名", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("数量", 100, HorizontalAlignment.Center);
+                        LstCollatingData.Columns.Add("カゴ車台数", 100, HorizontalAlignment.Center);
                         break;
                     default:
                         break;
@@ -5282,6 +5290,9 @@ namespace TokaiCoopApp
                         case 1:
                             DispWrappingData(line);
                             break;
+                        case 2:
+                            DispReservedData(line);
+                            break;
                         default:
                             DispSelectiveData(line);
                             break;
@@ -5518,6 +5529,58 @@ namespace TokaiCoopApp
             }
         }
 
+        private void DispReservedData(string sSelectiveData)
+        {
+            string[] col = new string[3 + 5 * 16 + 2 * 4];
+            ListViewItem itm;
+            string strWorkData;
+
+            try
+            {
+                int iColIndex = 0;
+
+                col[iColIndex++] = (PubConstClass.intCollatingIndex + 1).ToString("000000");    // col[0]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 0, 7);                 // col[1]：
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 7, 8);                 // col[2]：
+
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 15, 1);
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 16, 8);
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 24, 16);
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 40, 5);
+                col[iColIndex++] = SubstringByCp932Bytes(sSelectiveData, 45, 1);
+
+                // データの表示
+                itm = new ListViewItem(col);
+                LstCollatingData.Items.Add(itm);
+                LstCollatingData.Items[LstCollatingData.Items.Count - 1].UseItemStyleForSubItems = false;
+
+                strWorkData = "";
+                for (var intLoopCnt = 1; intLoopCnt <= 38; intLoopCnt++)
+                {
+                    strWorkData += col[intLoopCnt] + ",";
+                }
+                //CommonModule.OutPutLogFile($"■■読込データ({PubConstClass.intCollatingIndex.ToString("00000")})：{strWorkData}");
+
+                PubConstClass.pblCollatingData.Add(strWorkData);
+                PubConstClass.intCollatingIndex += 1;
+                // 作業コードのインデックスにデータを格納する（検索で使用する）
+                PubConstClass.pblReadCollating[Convert.ToInt32(col[0])] = strWorkData;
+
+                if (LstCollatingData.Items.Count % 2 == 0)
+                {
+                    // 偶数行の色反転
+                    for (var intLoopCnt = 0; intLoopCnt <= 38; intLoopCnt++)
+                    {
+                        LstCollatingData.Items[LstCollatingData.Items.Count - 1].SubItems[intLoopCnt].BackColor = Color.FromArgb(200, 200, 230);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace, "【DispSelectiveData】", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// CP932（Windows-31J）でのバイト数を桁として、
         /// Nバイト目からMバイトぶんを切り出す（文字境界を壊さない）。
@@ -5593,6 +5656,7 @@ namespace TokaiCoopApp
                     case 2:
                         // 予備セットデータ表示
                         sFileType = "P12.PXCLIST.*";
+                        DisplayHeader(2);
                         DispSelectiveDataHeader(2);
                         DispReservedSetData(sFileType);
                         break;
